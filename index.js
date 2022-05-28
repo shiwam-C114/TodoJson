@@ -7,7 +7,7 @@ function postTodo() {
         "status":chkBox
     }
     if (inpBox.length) {
-        let res = fetch(`http://localhost:3000/tasks`,{
+        fetch(`http://localhost:3000/tasks`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify(payload)
@@ -20,22 +20,28 @@ function postTodo() {
 
 function paintPage() {
     let display = document.getElementById("display")
-    fetch(`http://localhost:3000/tasks`).then(res=>res.json()).then(data=>{
-        console.log(data)
-        data.forEach(element => {
-            let card = document.createElement("div")
-            card.setAttribute("class", "card")
-            card.innerText = element.title
+    if (display) {
+        fetch(`http://localhost:3000/tasks`).then(res=>res.json()).then(data=>{
+            console.log(data)
+            data.forEach(element => {
+                let card = document.createElement("div")
+                card.setAttribute("class", "card")
+                
+                card.innerText = element.title
+                
+                if (element.status === true){
+                    card.style.color = "green"
+                }else{
+                    card.style.color = "red"
+                }
 
-            if (element.status === true) {
-                card.style.color = "green"
-            }else{
-                card.style.color = "red"
-            }
-            
-            display.append(card)
-        });
-
-    })
+                card.addEventListener("click",()=>{
+                    localStorage.setItem("taskId",element.id)
+                    location.href = "./edit.html"
+                })
+                display.append(card)           
+            });     
+        })
+    }
 }
 paintPage()
