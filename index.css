@@ -29,7 +29,13 @@ main{
     /* border: blue 1px solid; */
 }
 .delBut{
-    padding:0;
+    margin: 10px 5px;
+    padding: 5px ;
+    border: black 1px solid;
+    border-radius: 5px;
+    width: min-content;
+    height: min-content;
+    cursor: pointer;
 }
 .card{
 

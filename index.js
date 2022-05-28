@@ -41,7 +41,7 @@ function paintPage() {
                     localStorage.setItem("taskId",element.id)
                     location.href = "./edit.html"
                 })
-                let delBut = document.createElement("button")
+                let delBut = document.createElement("div")
                 delBut.setAttribute("class", "delBut")
                 delBut.addEventListener("click",()=>{
                     fetch(`http://localhost:3000/tasks/${element.id}`,{
