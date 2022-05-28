@@ -7,7 +7,7 @@ function postTodo() {
         "status":chkBox
     }
     if (inpBox.length) {
-        let res = fetch(`http://localhost:3000/todo`,{
+        let res = fetch(`http://localhost:3000/tasks`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify(payload)
@@ -20,8 +20,22 @@ function postTodo() {
 
 function paintPage() {
     let display = document.getElementById("display")
-    fetch(`http://localhost:3000/todo`).then(res=>res.json()).then(data=>{
+    fetch(`http://localhost:3000/tasks`).then(res=>res.json()).then(data=>{
         console.log(data)
+        data.forEach(element => {
+            let card = document.createElement("div")
+            card.setAttribute("class", "card")
+            card.innerText = element.title
+
+            if (element.status === true) {
+                card.style.color = "green"
+            }else{
+                card.style.color = "red"
+            }
+            
+            display.append(card)
+        });
+
     })
 }
 paintPage()

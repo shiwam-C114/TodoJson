@@ -1,15 +1,19 @@
 {
-  "todo": [
+  "tasks": [
     {
       "id": 1,
       "title": "new",
       "status": false
     },
-    
     {
       "title": "buy",
       "status": false,
       "id": 2
+    },
+    {
+      "title": "workout",
+      "status": true,
+      "id": 3
     }
   ]
 }
