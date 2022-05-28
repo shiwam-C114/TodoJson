@@ -1,12 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 main{
     border: 1px solid red;
     display: flex;
-    
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
 .inpHolder{
-    margin-top: 10%;
+    margin: 10% 0 1% 0;
 }
