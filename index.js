@@ -24,6 +24,8 @@ function paintPage() {
         fetch(`http://localhost:3000/tasks`).then(res=>res.json()).then(data=>{
             console.log(data)
             data.forEach(element => {
+                let parent = document.createElement("div")
+                parent.setAttribute("class", "parent")
                 let card = document.createElement("div")
                 card.setAttribute("class", "card")
                 
@@ -39,7 +41,19 @@ function paintPage() {
                     localStorage.setItem("taskId",element.id)
                     location.href = "./edit.html"
                 })
-                display.append(card)           
+                let delBut = document.createElement("button")
+                delBut.setAttribute("class", "delBut")
+                delBut.addEventListener("click",()=>{
+                    fetch(`http://localhost:3000/tasks/${element.id}`,{
+                        method: 'DELETE',
+                        headers: {'Content-Type': 'application/json'},
+                    })
+                    .then(response=>response.json())
+                    .then(data=>{console.log(data)})
+                })
+                delBut.innerText = "DELETE"
+                parent.append(card,delBut)
+                display.append(parent)           
             });     
         })
     }

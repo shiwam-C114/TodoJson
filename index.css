@@ -8,7 +8,7 @@ h1{
     padding-bottom: 30px;
 }
 main{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,10 +19,20 @@ main{
 .inpHolder{
     margin: 10% 0 1% 0;
 }
-button{
+.commonButton{
     padding: 5px 10px;
 }
+.parent{
+    display: flex;
+    flex-direction:row;
+    padding: 10px;
+    /* border: blue 1px solid; */
+}
+.delBut{
+    padding:0;
+}
 .card{
+
     border: black 1px solid;
     padding: 5px 10px;
     margin: 10px;
