@@ -6,13 +6,15 @@ function editDb() {
         "title":inpBox,
         "status":chkBox
     }
-        fetch(`http://localhost:3000/tasks`,{
-            method: 'POST',
+    const id = localStorage.getItem("taskId")
+        fetch(`http://localhost:3000/tasks/${id}`,{
+            method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify(payload)
         })
         .then(response=>response.json())
         .then(data=>{console.log(data)})
+    location.href = "./index.html"
 
 }
 
