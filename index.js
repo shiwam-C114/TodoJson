@@ -22,8 +22,8 @@ function paintPage() {
     let display = document.getElementById("display")
     if (display) {
         fetch(`https://shiwam-c114.github.io/TodoJsonServer/db.json`).then(res=>res.json()).then(data=>{
-            console.log(data)
-            data.forEach(element => {
+            console.log(data.tasks)
+            data.tasks.forEach(element => {
                 let parent = document.createElement("div")
                 parent.setAttribute("class", "parent")
                 let card = document.createElement("div")
