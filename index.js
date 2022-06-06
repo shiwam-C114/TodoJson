@@ -21,7 +21,7 @@ function postTodo() {
 function paintPage() {
     let display = document.getElementById("display")
     if (display) {
-        fetch(`http://localhost:3000/tasks`).then(res=>res.json()).then(data=>{
+        fetch(`https://shiwam-c114.github.io/TodoJsonServer/db.json`).then(res=>res.json()).then(data=>{
             console.log(data)
             data.forEach(element => {
                 let parent = document.createElement("div")
